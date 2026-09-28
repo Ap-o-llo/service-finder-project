@@ -1,0 +1,83 @@
+<!doctype html>
+<!-- Page guide: Homepage: service search, categories, provider results, and registration entry points. -->
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.trycloudflare.com; frame-src 'none'>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f3">
+  <meta name="description" content="Find and contact skilled local service providers across Kenya. Search by service, location, and budget for free.">
+  <title>SkillLink — Find your person</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="api-config.js" defer></script><script src="api-client.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <!-- Shared page header: branding and links; site.js adds the common drawer and theme toggle. -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="SkillLink home"><span class="brand-mark">s</span>skill<span class="brand-light">link</span></a>
+      <nav aria-label="Main navigation"><a href="#explore">Explore services</a><a href="saved.html">Saved <span class="nav-count" id="favoriteCount">0</span></a><a href="my-listings.html">Manage</a><a href="about.html">About</a></nav>
+      <a class="button button-dark" href="register.html?role=provider">Provider sign up <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <!-- Main page content: the information and interactive controls unique to this page. -->
+  <main id="home">
+    <section class="hero">
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <p class="eyebrow"><span class="live-dot"></span> MADE FOR KENYA · FREE TO USE</p>
+        <h1>Good work starts<br>with <em>the right person.</em></h1>
+        <p class="hero-copy">Find trusted local skills for the things you need done. Search nearby, compare prices, and connect directly.</p>
+        <form class="search-panel" id="searchForm">
+          <label class="search-field"><span class="field-icon">⌕</span><span class="sr-only">Service or skill</span><input id="searchService" list="serviceList" placeholder="What do you need done?" autocomplete="off"></label>
+          <label class="search-field"><span class="field-icon">⌖</span><span class="sr-only">Location</span><input id="searchLocation" list="locationList" placeholder="Town, estate or county" autocomplete="off"></label>
+          <label class="search-field price-search"><span class="field-icon">KSh</span><span class="sr-only">Maximum price</span><input id="searchPrice" type="number" min="0" placeholder="Max price"></label>
+          <button class="button button-lime" type="submit">Find a pro <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="hero-foot"><span>Try:</span><button type="button" data-quick="Plumber">Plumber</button><button type="button" data-quick="Hairdresser">Hairdresser</button><button type="button" data-quick="Tutor">Tutor</button><button type="button" data-quick="Electrician">Electrician</button></div>
+      </div>
+      <div class="hero-note"><span class="note-star">✳</span><span>Real people.<br><strong>Useful skills.</strong></span></div>
+    </section>
+
+    <section class="trust-row" aria-label="Marketplace features"><div class="wrap trust-inner"><span><b>01</b> Local providers</span><span><b>02</b> Direct contact</span><span><b>03</b> No search fees</span><span><b>04</b> Your budget first</span></div></section>
+
+    <section class="section wrap" id="explore">
+      <div class="section-heading"><div><p class="eyebrow">A GOOD PLACE TO START</p><h2>What do you need help with?</h2></div><p class="heading-note">Explore popular services or search for any skill.</p></div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <section class="provider-section" id="providers">
+      <div class="wrap">
+        <div class="section-heading results-heading"><div><p class="eyebrow">SKILL, MEET OPPORTUNITY</p><h2>People who get it done.</h2><p class="result-count" id="resultCount" aria-live="polite"></p></div>
+          <div class="sort-wrap"><label for="sortResults">Sort by</label><select id="sortResults"><option value="relevance">Best match</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="name">Name</option></select></div></div>
+        <div class="active-filters hidden" id="activeFilters"></div>
+        <div class="provider-grid" id="results" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="how-section wrap" id="how-it-works">
+      <div class="how-intro"><p class="eyebrow">SIMPLE BY DESIGN</p><h2>Find your person.<br><em>Get on with it.</em></h2><p>No long process. Just the right skills, nearby, with a direct line to the person doing the work.</p><a class="button button-dark" href="register.html?role=provider">Put your skills out there <span>↗</span></a></div>
+      <div class="steps"><article><span class="step-no">01</span><div><h3>Tell us what you need</h3><p>Search a skill and narrow things down by place and price.</p></div></article><article><span class="step-no">02</span><div><h3>Find a good fit</h3><p>See what people offer, where they work and their starting price.</p></div></article><article><span class="step-no">03</span><div><h3>Make it happen</h3><p>Call or WhatsApp the provider and agree on the details.</p></div></article></div>
+    </section>
+
+    <section class="join-banner" id="join"><div class="wrap join-inner"><div><p class="eyebrow">YOUR SKILLS HAVE VALUE</p><h2>Let the right people find you.</h2><p>Create an account, add your services, and manage your profile anytime.</p></div><a class="button button-lime" href="register.html?role=provider">Create provider account <span>↗</span></a></div></section>
+  </main>
+
+  <!-- Shared page footer: copyright and related site links. -->
+  <footer class="footer"><div class="wrap footer-top"><a class="brand" href="#home"><span class="brand-mark">s</span>skill<span class="brand-light">link</span></a><p>Good people. Good work. Right around the corner.</p><div class="footer-links"><a href="my-listings.html">Manage listings</a><a href="safety.html">Safety</a><a href="about.html">About</a></div></div><div class="wrap footer-bottom"><span>© <span id="year"></span> Godfrey Apollo &amp; Sam Baraka · SkillLink · Kenya</span><span>Free during launch · M-Pesa payments coming later</span></div></footer>
+
+  <!-- Common service and location suggestions. Custom entries are always accepted. -->
+  <datalist id="serviceList"></datalist><datalist id="locationList"></datalist>
+
+  <!-- Provider details and contact actions appear here. -->
+  <dialog class="dialog profile-dialog" id="profileDialog" aria-labelledby="profileTitle"><button class="icon-button profile-close" type="button" data-close-dialog aria-label="Close">×</button><div id="profileContent"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

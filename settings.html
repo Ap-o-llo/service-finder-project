@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- Page guide: Settings page: controls browser appearance and accessibility preferences. -->
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.trycloudflare.com; frame-src 'none'>
+  
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Personalize how SkillLink looks and feels.">
+  <title>General settings — SkillLink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="api-config.js" defer></script><script src="api-client.js" defer></script><script src="settings.js" defer></script><script src="site.js" defer></script>
+</head>
+<body class="subpage">
+  <!-- Shared page header: branding and links; site.js adds the common drawer and theme toggle. -->
+  <header class="site-header"><div class="wrap nav"><a class="brand" href="index.html"><span class="brand-mark">s</span>skill<span class="brand-light">link</span></a><nav aria-label="Settings navigation"><a href="index.html#providers">Search</a><a href="about.html">About</a></nav><a class="button button-dark" href="index.html">Directory</a></div></header>
+  <!-- Main page content: the information and interactive controls unique to this page. -->
+  <main class="wrap page-shell">
+    <p class="eyebrow">MAKE IT YOURS</p><h1 class="page-title">General settings<span class="title-period">.</span></h1>
+    <p class="page-lead">These preferences stay in this browser and only affect how SkillLink appears for you.</p>
+    <section class="settings-card"><h2>Appearance</h2><p>Choose the theme that feels comfortable. System follows your device preference.</p><div class="settings-choice-row" role="group" aria-label="Color theme"><button type="button" data-set-theme="system">System</button><button type="button" data-set-theme="light">Light</button><button type="button" data-set-theme="dark">Dark</button></div></section>
+    <section class="settings-card"><h2>Accessibility</h2><label class="setting-switch"><span><strong>Higher contrast</strong><small>Strengthen text and control outlines for easier reading.</small></span><input id="highContrast" type="checkbox"></label><label class="setting-switch"><span><strong>Reduce motion</strong><small>Reduce movement and smooth scrolling effects.</small></span><input id="reduceMotion" type="checkbox"></label></section>
+    <section class="settings-card"><h2>Reset preferences</h2><p>Return appearance and accessibility options to their defaults.</p><button class="button button-outline" id="resetSettings" type="button">Reset settings</button><p id="settingsMessage" class="form-message hidden" role="status"></p></section>
+  </main>
+  <!-- Shared page footer: copyright and related site links. -->
+  <footer class="footer"><div class="wrap footer-bottom"><span>© <span data-year></span> Godfrey Apollo &amp; Sam Baraka · SkillLink</span><a href="help.html">Help</a></div></footer>
+</body>
+</html>

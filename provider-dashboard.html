@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- Page guide: Provider dashboard: edit a provider profile, services, availability, and gallery photos. -->
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.trycloudflare.com; frame-src 'none'>
+  
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Manage your SkillLink provider profile and services.">
+  <title>Provider dashboard — SkillLink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="api-config.js" defer></script><script src="api-client.js" defer></script><script src="provider-dashboard.js" defer></script><script src="site.js" defer></script>
+</head>
+<body class="subpage">
+  <!-- Shared page header: branding and links; site.js adds the common drawer and theme toggle. -->
+  <header class="site-header"><div class="wrap nav">
+    <a class="brand" href="index.html"><span class="brand-mark">s</span>skill<span class="brand-light">link</span></a>
+    <nav aria-label="Provider navigation"><a href="index.html#providers">Search</a><a href="provider-dashboard.html" aria-current="page">Dashboard</a><a href="account.html">Account</a></nav>
+    <a class="button button-dark" href="index.html">View directory <span>↗</span></a>
+  </div></header>
+  <!-- Main page content: the information and interactive controls unique to this page. -->
+  <main class="wrap page-shell">
+    <div class="dashboard-head"><div><p class="eyebrow">PROVIDER ACCOUNT</p><h1 class="dashboard-title">Welcome, <span id="providerWelcome">there</span> 👋</h1><p class="dashboard-lead">Manage your public profile, services, and the photos that help customers see your work.</p></div><span class="status-pill draft" id="profileStatus">Profile in progress</span></div>
+    <nav class="account-nav" aria-label="Provider account pages"><a href="provider-dashboard.html" aria-current="page">Dashboard &amp; services</a><a href="account.html">Account details</a><a href="index.html">Public directory</a></nav>
+    <div class="dashboard-grid">
+      <div class="dashboard-main">
+        <section class="dashboard-panel"><h2>Public profile</h2>
+          <form class="dashboard-form" id="providerProfileForm">
+            <label>Service location<input id="providerLocation" maxlength="160" list="locationList" required placeholder="Town, estate, county"></label>
+            <label>Availability<select id="providerAvailability"><option>Ask provider</option><option>Available weekdays</option><option>Available evenings</option><option>Available weekends</option><option>By appointment</option></select></label>
+            <label>About your work<textarea id="providerAbout" maxlength="1200" rows="4" placeholder="Experience, the jobs you do best, and areas you serve"></textarea></label>
+            <section class="photo-manager">
+              <h2>Profile picture</h2><p class="dashboard-lead">This is the main photo customers see beside your name.</p>
+              <label>Choose a profile picture<input id="providerPhoto" type="file" accept="image/jpeg,image/png,image/webp"></label>
+              <img id="photoPreview" class="photo-preview hidden" alt="Profile photo preview">
+            </section>
+            <section class="photo-manager">
+              <h2>Work gallery</h2><p class="dashboard-lead">Show up to six photos of your work, tools, or business. Choose real photos you have permission to use.</p>
+              <label>Add work photos<input id="providerGallery" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+              <div id="galleryPreview" class="gallery-editor-grid"></div>
+            </section>
+            <section class="service-editor"><h2>Your services</h2><p class="dashboard-lead">Add each service separately so customers can search by service and starting price.</p><div id="serviceRows" class="service-list"></div><button class="button button-outline" type="button" id="addService">+ Add a service</button></section>
+            <p class="form-message hidden" id="dashboardMessage" role="status"></p>
+            <div class="dashboard-actions"><button class="button button-dark" type="submit" data-publish="true">Save &amp; publish <span>→</span></button><button class="button button-outline" type="submit" data-publish="false">Save as draft</button><button class="button button-outline hidden" type="button" id="unpublishButton">Unpublish</button></div>
+          </form>
+        </section>
+      </div>
+      <aside class="dashboard-main">
+        <section class="dashboard-panel"><h2>Profile checklist</h2><div id="profileChecklist" class="dashboard-side-list"></div><div class="dashboard-actions"><a class="button button-outline" id="viewPublicProfile" href="index.html" target="_blank" rel="noopener">View my profile ↗</a><a class="button button-outline" href="account.html">Edit account details</a></div></section>
+        <section class="dashboard-panel"><h2>Quick note</h2><p class="dashboard-lead">Your contact details and login email are managed in Account details. Customer ratings are public feedback and are not verified job records. Reviewers see that their first name and last initial are displayed.</p></section>
+      </aside>
+    </div>
+    <datalist id="locationList"><option value="Nairobi"><option value="Mombasa"><option value="Kisumu"><option value="Nakuru"><option value="Eldoret"><option value="Machakos"><option value="Mwala"><option value="Kiambu"><option value="Kajiado"><option value="Westlands"><option value="Nyali"><option value="Thika"></datalist>
+    <datalist id="serviceSuggestions"><option value="Plumber"><option value="Electrician"><option value="Welder"><option value="Carpenter"><option value="Hairdresser"><option value="Tutor"><option value="Driver"><option value="Caterer"><option value="Graphic Designer"><option value="Photographer"><option value="House Cleaner"><option value="Solar Technician"></datalist>
+  </main>
+  <!-- Shared page footer: copyright and related site links. -->
+  <footer class="footer"><div class="wrap footer-bottom"><span>© <span data-year></span> Godfrey Apollo &amp; Sam Baraka · SkillLink</span><a href="help.html">Help</a></div></footer>
+</body>
+</html>
